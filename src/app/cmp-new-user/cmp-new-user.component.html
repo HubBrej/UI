@@ -1,0 +1,25 @@
+<div class="col-sm-8 col-sm-offset-2" class="auth-form">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" id="login" class="form-control" formControlName="login">
+    </div>
+    <div class="form-group">
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" class="form-control" formControlName="password">
+    </div>
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="firstname">Prénom</label>
+      <input type="text" id="firstname" class="form-control" formControlName="firstname">
+    </div>
+    <div class="form-group">
+      <label for="groups">Liste de groupes</label>
+      <input type="text" id="groups" class="form-control" formControlName="groups">
+    </div>
+    <button type="submit" class="btn btn-primary">Soumettre</button>
+  </form>
+</div>
