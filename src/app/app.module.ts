@@ -3,16 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Comp1Component } from './comp1/comp1.component';
+import { CmpAuthComponent } from './cmp-auth/cmp-auth.component';
+import { CmpNewUserComponent } from './cmp-new-user/cmp-new-user.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Comp1Component
+    CmpAuthComponent,
+    CmpNewUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
