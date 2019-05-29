@@ -7,4 +7,8 @@ export class User {
         public groups? : string[],
         public token?: string
     ){}
+
+    toJson(){
+        return JSON.stringify(this);
+    }
 }
