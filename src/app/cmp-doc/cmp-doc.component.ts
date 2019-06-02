@@ -50,9 +50,7 @@ export class CmpDocComponent implements OnInit {
     oReq.open("POST", "http://127.0.0.1:5000/doc");
     oReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     let DTO=JSON.parse(newDoc.toJson())
-    console.log(this.authService.isAuth)
     DTO['token']=this.authService.token
-    console.log(DTO)
     oReq.send(JSON.stringify(DTO));
     oReq.onreadystatechange = (() => {
       if (oReq.readyState === 4 && oReq.status === 200) {
