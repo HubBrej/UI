@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Document } from '../models/Doc.model'
-import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -19,7 +18,7 @@ export class CmpDocComponent implements OnInit {
   type: string;
   id: string;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private authService=AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
     this.name = '';
     this.author = '';
     this.type = '';
@@ -50,7 +49,11 @@ export class CmpDocComponent implements OnInit {
     var oReq = new XMLHttpRequest();
     oReq.open("POST", "http://127.0.0.1:5000/doc");
     oReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    oReq.send(newUser.toJson());
+    let DTO=JSON.parse(newDoc.toJson())
+    console.log(this.authService.isAuth)
+    DTO['token']=this.authService.token
+    console.log(DTO)
+    oReq.send(JSON.stringify(DTO));
     oReq.onreadystatechange = (() => {
       if (oReq.readyState === 4 && oReq.status === 200) {
         this.responseJson = JSON.parse(oReq.responseText)

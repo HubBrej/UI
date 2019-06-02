@@ -42,6 +42,7 @@ export class CmpAuthComponent implements OnInit {
         this.responseJson = JSON.parse(oReq.responseText)
         if (typeof (this.responseJson['token']) != "undefined") {
           this.authService.isAuth = true
+          this.authService.token=this.responseJson['token']
         } else {
           this.authService.isAuth = false
         }

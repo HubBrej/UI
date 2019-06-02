@@ -1,6 +1,5 @@
 import { ActivatedRouteSnapshot, Router, CanActivate, RouterStateSnapshot } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import { CmpAuthComponent } from '../cmp-auth/cmp-auth.component';
 import { Injectable } from '@angular/core'
 import { AuthService } from './auth.service'
 
