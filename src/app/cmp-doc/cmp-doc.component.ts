@@ -10,7 +10,6 @@ import { AuthService } from '../services/auth.service';
 })
 export class CmpDocComponent implements OnInit {
   docForm: FormGroup;
-  responseText: any;
   responseJson: any;
   name: string;
   author: string;
@@ -23,6 +22,7 @@ export class CmpDocComponent implements OnInit {
     this.author = '';
     this.type = '';
     this.id=''
+    this.date= new Date();
   }
 
   ngOnInit() {
