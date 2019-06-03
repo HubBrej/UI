@@ -1,7 +1,8 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit, Output, Input } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Document } from '../models/Doc.model'
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cmp-doc',
@@ -9,15 +10,16 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./cmp-doc.component.css']
 })
 export class CmpDocComponent implements OnInit {
+  requestDoc=new Document();
   docForm: FormGroup;
   responseJson: any;
   name: string;
   author: string;
   date: Date;
   type: string;
-  id: string;
+  id: string
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, public router:Router) {
     this.name = '';
     this.author = '';
     this.type = '';
@@ -26,6 +28,7 @@ export class CmpDocComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.getElementById("result").onclick=this.detailedDoc
     this.initForm()
   }
   initForm() {
@@ -37,6 +40,11 @@ export class CmpDocComponent implements OnInit {
       id: ''
     });
   }
+
+  detailedDoc(){
+    this.router.navigate(['/detailed-doc'])
+  }
+
   onSubmitForm() {
     const formValue = this.docForm.value;
     const newDoc = new Document(
@@ -60,6 +68,7 @@ export class CmpDocComponent implements OnInit {
         this.date=new Date(this.responseJson['date'])
         this.type=this.responseJson['type']
         this.id=this.responseJson['id']
+        this.requestDoc.fromJson(this.responseJson)
       }
     })
   }

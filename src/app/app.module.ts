@@ -8,14 +8,16 @@ import { CmpNewUserComponent } from './cmp-new-user/cmp-new-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CmpDocComponent } from './cmp-doc/cmp-doc.component';
 import { AuthGuard } from './services/aut-guard.service';
-import { AuthService } from './services/auth.service'
+import { AuthService } from './services/auth.service';
+import { CmpDetailedDocComponent } from './cmp-detailed-doc/cmp-detailed-doc.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CmpAuthComponent,
     CmpNewUserComponent,
-    CmpDocComponent
+    CmpDocComponent,
+    CmpDetailedDocComponent
   ],
   imports: [
     BrowserModule,

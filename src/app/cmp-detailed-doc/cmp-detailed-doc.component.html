@@ -1,0 +1,13 @@
+<h3>{{ requestDoc.name }}</h3>
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm- form-group">
+    <ul class="list-group">
+      <li class="list-group-item">Titre: {{ requestDoc.name }}</li>
+      <li class="list-group-item">Auteur: {{ requestDoc.author }}</li>
+      <li class="list-group-item">Date de création: {{ requestDoc.date.getFullYear() }}</li>
+      <li class="list-group-item">Type de document: {{ requestDoc.type }}</li>
+      <li class="list-group-item">ID: {{ requestDoc.id }}</li>
+    </ul>
+  </div>
+</div>
