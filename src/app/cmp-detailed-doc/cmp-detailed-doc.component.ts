@@ -1,15 +1,16 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DocService } from '../services/doc.service';
+
 @Component({
   selector: 'app-cmp-detailed-doc',
   templateUrl: './cmp-detailed-doc.component.html',
   styleUrls: ['./cmp-detailed-doc.component.css']
 })
-@Injectable()
-export class CmpDetailedDocComponent implements OnInit {
-  constructor(private docService: DocService) { }
+export class CmpDetailedDocComponent{
+  constructor(private docService: DocService) {
+   }
 
-  ngOnInit() {
-  }
-
+   modifierMeta(){
+     let elem=document.getElementById("mod-box")
+   }
 }

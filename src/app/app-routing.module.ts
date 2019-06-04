@@ -8,7 +8,7 @@ import { CmpDetailedDocComponent } from './cmp-detailed-doc/cmp-detailed-doc.com
 
 const routes: Routes = [ { path: 'new-user', component: CmpNewUserComponent },
 { path: 'auth', component: CmpAuthComponent },
-{ path: 'doc', canActivate:[AuthGuard],component: CmpDocComponent},
+{ path: 'doc', canActivate:[AuthGuard], component: CmpDocComponent},
 { path: 'detailed-doc', canActivate:[AuthGuard],component: CmpDetailedDocComponent}];
 
 @NgModule({

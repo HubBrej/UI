@@ -10,6 +10,7 @@ import { CmpDocComponent } from './cmp-doc/cmp-doc.component';
 import { AuthGuard } from './services/aut-guard.service';
 import { AuthService } from './services/auth.service';
 import { CmpDetailedDocComponent } from './cmp-detailed-doc/cmp-detailed-doc.component'
+import { DocService } from './services/doc.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { CmpDetailedDocComponent } from './cmp-detailed-doc/cmp-detailed-doc.com
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard,AuthService],
+  providers: [AuthGuard,AuthService, DocService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

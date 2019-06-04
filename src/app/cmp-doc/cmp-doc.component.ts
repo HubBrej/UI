@@ -20,7 +20,10 @@ export class CmpDocComponent implements OnInit {
   type: string;
   id: string
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router, private docService: DocService) {
+  constructor(private formBuilder: FormBuilder,
+    private authService: AuthService,
+    public router: Router,
+    private docService: DocService) {
     this.name = '';
     this.author = '';
     this.type = '';
@@ -64,7 +67,7 @@ export class CmpDocComponent implements OnInit {
         this.date = new Date(this.responseJson['date'])
         this.type = this.responseJson['type']
         this.id = this.responseJson['id']
-        //this.docService.doc.fromJson(this.responseJson)
+        this.docService.doc.fromJson(this.responseJson)
       }
     })
   }

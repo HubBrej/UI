@@ -1,13 +1,21 @@
 <h3>{{ docService.doc.name }}</h3>
 <div class="row">
   <div class="col-sm-1"></div>
-  <div class="col-sm- form-group">
+  <div class="col-sm-3 form-group">
     <ul class="list-group">
       <li class="list-group-item">Titre: {{ docService.doc.name }}</li>
       <li class="list-group-item">Auteur: {{ docService.doc.author }}</li>
-      <li class="list-group-item">Date de création: {{ docService.doc.date.getFullYear() }}</li>
+      <li class="list-group-item">Date de création: {{ docService.doc.date}}</li>
       <li class="list-group-item">Type de document: {{ docService.doc.type }}</li>
       <li class="list-group-item">ID: {{ docService.doc.id }}</li>
     </ul>
+  </div>
+  <div class="col-sm-2 list-group">
+    <button class="btn btn-primary list-group-item active" id="btn-mod">Modifier</button>
+    <button class="btn btn-primary list-group-item active" id="btn-modMeta" (click)="modifierMeta">Modifier méta</button>
+    <button class="btn btn-primary list-group-item active" id="btn-suppr">Supprimer</button>
+    <button class="btn btn-primary list-group-item active" id="btn-modPerm">Modifier permission</button> 
+  </div>
+  <div class="col-sm-6" id="mod-box">
   </div>
 </div>
