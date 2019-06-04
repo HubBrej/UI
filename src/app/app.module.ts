@@ -11,6 +11,7 @@ import { AuthGuard } from './services/aut-guard.service';
 import { AuthService } from './services/auth.service';
 import { CmpDetailedDocComponent } from './cmp-detailed-doc/cmp-detailed-doc.component'
 import { DocService } from './services/doc.service';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DocService } from './services/doc.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [AuthGuard,AuthService, DocService],
   bootstrap: [AppComponent]

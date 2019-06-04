@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { DocService } from '../services/doc.service';
 
 @Component({
@@ -6,11 +6,16 @@ import { DocService } from '../services/doc.service';
   templateUrl: './cmp-detailed-doc.component.html',
   styleUrls: ['./cmp-detailed-doc.component.css']
 })
-export class CmpDetailedDocComponent{
-  constructor(private docService: DocService) {
-   }
+export class CmpDetailedDocComponent {
+  hideMM:boolean;
+  
 
-   modifierMeta(){
-     let elem=document.getElementById("mod-box")
-   }
+  constructor(private docService: DocService) {
+    this.hideMM=false
+
+  }
+  show(val){
+    console.log(val)
+    this.hideMM=this.hideMM==val
+  }
 }
