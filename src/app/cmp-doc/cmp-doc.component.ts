@@ -1,16 +1,17 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Document } from '../models/Doc.model'
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { DocService } from '../services/doc.service';
 
 @Component({
   selector: 'app-cmp-doc',
   templateUrl: './cmp-doc.component.html',
   styleUrls: ['./cmp-doc.component.css']
 })
+@Injectable()
 export class CmpDocComponent implements OnInit {
-  requestDoc=new Document();
   docForm: FormGroup;
   responseJson: any;
   name: string;
@@ -19,16 +20,15 @@ export class CmpDocComponent implements OnInit {
   type: string;
   id: string
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, public router:Router) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, public router: Router, private docService: DocService) {
     this.name = '';
     this.author = '';
     this.type = '';
-    this.id=''
-    this.date= new Date();
+    this.id = ''
+    this.date = new Date();
   }
 
   ngOnInit() {
-    document.getElementById("result").onclick=this.detailedDoc
     this.initForm()
   }
   initForm() {
@@ -39,10 +39,6 @@ export class CmpDocComponent implements OnInit {
       type: '',
       id: ''
     });
-  }
-
-  detailedDoc(){
-    this.router.navigate(['/detailed-doc'])
   }
 
   onSubmitForm() {
@@ -57,18 +53,18 @@ export class CmpDocComponent implements OnInit {
     var oReq = new XMLHttpRequest();
     oReq.open("POST", "http://127.0.0.1:5000/doc");
     oReq.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    let DTO=JSON.parse(newDoc.toJson())
-    DTO['token']=this.authService.token
+    let DTO = JSON.parse(newDoc.toJson())
+    DTO['token'] = this.authService.token
     oReq.send(JSON.stringify(DTO));
     oReq.onreadystatechange = (() => {
       if (oReq.readyState === 4 && oReq.status === 200) {
         this.responseJson = JSON.parse(oReq.responseText)
-        this.name=this.responseJson['name']
-        this.author=this.responseJson['author']
-        this.date=new Date(this.responseJson['date'])
-        this.type=this.responseJson['type']
-        this.id=this.responseJson['id']
-        this.requestDoc.fromJson(this.responseJson)
+        this.name = this.responseJson['name']
+        this.author = this.responseJson['author']
+        this.date = new Date(this.responseJson['date'])
+        this.type = this.responseJson['type']
+        this.id = this.responseJson['id']
+        //this.docService.doc.fromJson(this.responseJson)
       }
     })
   }
